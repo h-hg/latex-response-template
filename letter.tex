@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+% template
+%% You can change this flag to `False` after finish
+\def\IfDraft{True}
+%% Template package
+\usepackage{responseletter}
+%% You can define your custom package in this file
+\input{pkg.tex}
+
+% Input the information of paper here
+%% The title of the paper
+\def\PaperTitle{Title of the paper}
+%% ID of paper
+\def\PaperId{{JRNL\_YEAR\_NUM}}
+%% Revison number
+\def\PaperRevision{1}
+%% Special issue id
+\def\SpecialIssueId{{SI:CONF20XX}}
+%% The name of journal or conference
+\def\Journal{{Journal of Something}}
+
+%% Names of all authors 
+\def\Authors{Name 1, Name 2}
+%% Name of author, in the form of `[ID of affiliation]{name}`
+\author[1]{Name 1}
+\author[2]{Name 2}
+%% Information of affiliation, in the form of `[ID of affiliation]{information}`
+\affil[1]{University 1, City 1, Country 1}
+\affil[2]{University 3, City 2, Country 2}
+
+% Don't show the date
+\date{}
+\title{\textbf{\PaperTitle}}
+
+% Add your bibtex file here
+\addbibresource{ref.bib}
+
+\begin{document}
+  
+  \maketitle
+  
+  % Content of the 1st page
+  \noindent \textbf{Dear Editors},
+  \\[2em]
+  \indent We express our gratitude for the time and effort dedicated to the reviewing of our submitted manuscript.
+  We worked diligently to address all the concerns raised by the referees.
+  Below we provide our detailed response to their comments.
+  %We have highlighted the main changes in the paper by colouring the modified text and adding a side note in which the addressed remark is referenced.
+  We hope that the applied revisions are to the satisfaction of the editors.
+  \\[2em]
+  Kind regards,
+  \begin{flushright}
+    \Authors
+  \end{flushright}
+  \vfill
+  \section*{Manuscript information}
+  \begin{description}
+    \item[Number:] \PaperId
+    \item[Title:] ``\PaperTitle''
+    \item[Authors:] \Authors
+    \item[Revision:] \PaperRevision
+    \item[Submitted to:] \Journal
+    \item[Special issue:] \SpecialIssueId
+  \end{description}
+  \pagebreak
+  
+  {
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+    \pagebreak
+  }
+
+  \input{editor.tex}
+  \input{reviewer1.tex}
+
+\end{document}

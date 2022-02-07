@@ -1,0 +1,117 @@
+\ProvidesPackage{responseletter}
+% Author: Hunter Hwang
+
+%%%%%%%%%%%%%%%%%%%%%%%% Package %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% page size setting
+\RequirePackage{geometry}
+\geometry{
+  a4paper,
+  left=15mm,
+  right=15mm,
+  top=15mm,
+  bottom=15mm,
+  marginparwidth=15mm
+}
+
+% To add author blocks to the front-matter
+\RequirePackage{authblk}
+
+% Reference
+\RequirePackage[style=ieee,refsection=subsection]{biblatex}
+
+% Color
+\RequirePackage{xcolor}
+
+% Text decoration
+\RequirePackage{soul}
+
+% Indent first line automatically
+\usepackage{indentfirst}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Common Part of Comment %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{Draft}{
+  \ifx \IfDraft True {
+}{
+  }
+  \fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Labels %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Label}[2]{
+  \colorbox{#1}{\color{white} \textbf{#2}}
+}
+
+\newcommand{\Hard}{
+  \Label{red}{Hard}
+}
+
+\newcommand{\Medium}{
+  \Label{yellow}{Medium}
+}
+
+\newcommand{\Easy}{
+  \Label{green}{Easy}
+}
+
+\newcommand{\Done}{
+  \Label{blue}{Done}
+}
+
+\newcommand{\InProcess}{
+  \Label{cyan}{Done}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Common Part of Comment %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+\newenvironment{CommentSummary}{
+  \subsection*{Comments to the Authors:}
+  %\begin{quotation}
+    \begin{em}
+}{
+    \end{em}
+  %\end{quotation}
+}
+
+\newenvironment{Response}{
+  \subsection*{Response}
+}{
+  \vspace{2cm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Editors %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{Editor}[1][Editor]{
+  \ifx #1 \empty {
+    \section{Editor}
+  } \else {
+    \section{#1}
+  }
+  \fi
+}{
+  \pagebreak
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Reviewer %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{ReviewerCounter}
+\newcounter{ReviewerCommentCounter}[section]
+
+\newenvironment{Reviewer}{
+  \stepcounter{ReviewerCounter}
+  \section{Review \arabic{ReviewerCounter}}
+}{
+  \pagebreak
+}
+
+\newenvironment{ReviewerComment}{
+  \stepcounter{ReviewerCommentCounter}
+  \subsection{Comment \Roman{ReviewerCommentCounter}}
+  %\begin{quotation}
+  \begin{em}
+}{
+  \end{em}
+  %\end{quotation}
+}

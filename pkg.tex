@@ -1,0 +1,44 @@
+% Using [H] to ban the float of algorithm, figure and so on.
+\usepackage{float}
+
+% Figure
+\usepackage{graphicx}
+\usepackage[]{subfig}
+
+% Table
+\usepackage{multirow}
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% URL
+\usepackage{url}
+
+% Algorithm
+%% Float of algorithm
+\usepackage{algorithm}
+%% Body of algorithm
+\usepackage{algorithmic}
+%% Custom setting for algorithmic
+\renewcommand{\algorithmicrequire}{\textbf{Input:}} 
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+% Autoref
+\usepackage[]{hyperref} 
+\hypersetup{
+  colorlinks=true,
+}
+%% Custom refname for algorithm
+\newcommand{\algorithmautorefname}{Algorithm}
+%% Custom refname for subfigure
+\newcommand{\subfigureautorefname}{Figure}
+%% Custom refname for section
+\renewcommand{\sectionautorefname}{Section}
+%% Custom refname for subsection
+\renewcommand{\subsectionautorefname}{Subsection}
+%% Custom refname for step of algorithm
+\makeatletter
+\newcommand{\ALC@uniqueautorefname}{Line}
+\makeatother
+
