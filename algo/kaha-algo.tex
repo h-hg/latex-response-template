@@ -1,0 +1,17 @@
+\begin{algorithmic}[1]
+  \REQUIRE Graph $G(\mathbb{V}, \mathbb{E})$
+  \ENSURE Sequence $L$
+  \STATE $L \leftarrow$ an empty sequence
+  \STATE $Q \leftarrow$ the vertices whose indegree is zero
+  \WHILE{$Q$ is not empty}
+    \STATE $u \leftarrow$ remove the top node of $Q$
+    \STATE add $u$ to $L$
+    \FOR{each node $v$ with an edge $e$ from $u$ to $v$}
+      \STATE remove edge $e$ from graph $G$
+      \IF{indegree of $v$ is $0$}
+        \STATE push $v$ to $Q$
+      \ENDIF
+    \ENDFOR
+  \ENDWHILE
+  \RETURN $L$
+\end{algorithmic}

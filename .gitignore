@@ -6,5 +6,6 @@
 *.gz
 *.log
 *.out
+*.pyg
 *.toc
 *.xml
