@@ -85,23 +85,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Editors %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{Editor}[1][Editor]{
-  \ifx #1 \empty {
-    \section{Editor}
-  } \else {
-    \section{#1}
-  }
-  \fi
+  \section{#1}
 }{
   \pagebreak
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Reviewer %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcounter{ReviewerCounter}
+\setcounter{ReviewerCounter}{1}
 \newcounter{ReviewerCommentCounter}[section]
 
-\newenvironment{Reviewer}{
+\newenvironment{Reviewer}[1][\arabic{ReviewerCounter}]{
+  \ifx #1 \empty {
+    \section{Reviewer #1}
+  } \else {
+    \setcounter{ReviewerCounter}{#1}
+    \section{Reviewer \arabic{ReviewerCounter}}
+  }
+  \fi
   \stepcounter{ReviewerCounter}
-  \section{Review \arabic{ReviewerCounter}}
 }{
   \pagebreak
 }

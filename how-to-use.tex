@@ -30,8 +30,21 @@ A simple example is as follows.
 \end{Reviewer}
 \end{minted}
 
-Reviewers are automatically numbered using Arabic numerals.
-Reviewer responses are numbered using Roman numerals automatically.
+Reviewers are automatically numbered using Arabic numerals by default.
+You can also give the number to the reviewer like follow. 
+Note that this behavior will change the number of subsequent reviewers.
+\begin{minted}[]{latex}
+\begin{Reviewer}
+  % reviewer 1
+\end{Reviewer}
+\begin{Reviewer}[3]
+  % reviewer 3
+\end{Reviewer}
+\begin{Reviewer}
+  % reviewer 4
+\end{Reviewer}
+\end{minted}
+Comments of reviewer are numbered using Roman numerals automatically.
 More details, please see the .tex file.
 
 \subsection{Display of content}
