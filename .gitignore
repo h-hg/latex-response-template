@@ -9,3 +9,4 @@
 *.pyg
 *.toc
 *.xml
+_minted-*/

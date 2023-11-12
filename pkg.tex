@@ -48,3 +48,9 @@
 % border box
 \usepackage{boxedminipage}
 \usepackage{framed}
+
+\renewcommand{\theequation}{R.\arabic{equation}}
+\renewcommand{\thefigure}{R.\arabic{figure}}
+\renewcommand{\thetable}{R.\arabic{table}}
+\renewcommand{\thealgorithm}{R.\arabic{algorithm}}
+\DeclareFieldFormat{labelnumber}{R.#1}
