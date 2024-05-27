@@ -57,11 +57,14 @@ From the perspective of discrete mathematics, the vertices of an edge can be reg
 The most typical implementation of topological sorting is the Kahn algorithm~\cite{kahn1962topological}, which continuously removes the vertex with zero indegree in the graph $G$ and append the vertex into the end of the current sequence $L$.
 Its pseudo code is shown in \autoref{algo:kaha}, and \autoref{fig:kaha-example} is an example of this pseudo code.
 
-  \begin{algorithm}[H]
-    \caption{KahnAlgorithm}
-    \label{algo:kaha}
-    \input{algo/kaha-algo.tex}
-  \end{algorithm}
+
+\begin{algorithm}[H]
+  \centering
+  \caption{KahnAlgorithm}
+  \label{algo:kaha}
+  \input{algo/kaha-algo.tex}
+\end{algorithm}
+
 
 \begin{figure}[H]
   \centering
@@ -98,6 +101,8 @@ Its pseudo code is shown in \autoref{algo:kaha}, and \autoref{fig:kaha-example} 
 
 \printbibliography[heading=none]
 
+\Tip In order to distinguish the  \mintinline{latex}{\ref} or  \mintinline{latex}{\autoref} in the response letter from the paper, a alphabet R. will be used as a prefix in the letter.
+
 \subsection{Draft Mode}
 
 There is a draft mode is this template.
@@ -129,7 +134,7 @@ It can be used with draft mode like follow.
 \end{Response}
 \end{minted}
 
-The effect is as follows.
+The effect is shown in the frame below
 
 \begin{framed}
 \noindent \textbf{Response}~\\
@@ -144,13 +149,11 @@ Your response here.
 
 The built-in labels are list as follows.
 \begin{itemize}
-    \item \Hard
-    \item \Medium
-    \item \Easy
-    \item \Done
+  \item \Hard
+  \item \Medium
+  \item \Easy
+  \item \Done
+  \item \Tip
 \end{itemize}
 
-You can customize your labels by
-\begin{minted}[]{latex}
-\Label{color}{text}
-\end{minted}
+You can customize your labels by \mintinline{latex}{\Label{color}{text}}.

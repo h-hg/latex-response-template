@@ -1,7 +1,12 @@
-\ProvidesPackage{responseletter}
 % Author: Hunter Hwang
 
-%%%%%%%%%%%%%%%%%%%%%%%% Package %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{responseletter}[2024/5/26 A Latex Response Letter class]
+\LoadClass[]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Core Package %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[utf8]{inputenc}
 
 % page size setting
 \RequirePackage{geometry}
@@ -19,15 +24,73 @@
 
 % Reference
 \RequirePackage[style=ieee,refsection=subsection]{biblatex}
+%% cite style
+\DeclareFieldFormat{labelnumber}{R.#1}
 
 % Color
 \RequirePackage{xcolor}
 
-% Text decoration
-\RequirePackage{soul}
+% reference style for builtin
+\renewcommand{\theequation}{R.\arabic{equation}}
+\renewcommand{\thefigure}{R.\arabic{figure}}
+\renewcommand{\thetable}{R.\arabic{table}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Additonal Package %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Indent first line automatically
-\usepackage{indentfirst}
+\RequirePackage{indentfirst}
+
+% Using [H] to ban the float of algorithm, figure and so on.
+\RequirePackage{float}
+
+% Figure
+\RequirePackage{graphicx}
+\RequirePackage[]{subfig}
+
+% Math
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+
+% Algorithm
+%% Float of algorithm
+\RequirePackage{algorithm}
+%% Body of algorithm
+\RequirePackage{algorithmic}
+%% Custom setting for algorithmic
+\renewcommand{\algorithmicrequire}{\textbf{Input:}} 
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%% cite style
+\renewcommand{\thealgorithm}{R.\arabic{algorithm}}
+
+% Code highlight
+\RequirePackage{minted}
+
+% Autoref
+\RequirePackage[
+  colorlinks,
+  linkcolor=red,
+  anchorcolor=blue,
+  citecolor=green % black
+]{hyperref}
+%% Custom refname for algorithm
+\newcommand{\algorithmautorefname}{Algorithm}
+%% Custom refname for subfigure
+\newcommand{\subfigureautorefname}{Figure}
+%% Custom refname for section
+\renewcommand{\sectionautorefname}{Section}
+%% Custom refname for subsection
+\renewcommand{\subsectionautorefname}{Subsection}
+%% Custom refname for subsection
+\renewcommand{\subsubsectionautorefname}{SubSubsection}
+%% Custom refname for step of algorithm
+\makeatletter
+\newcommand{\ALC@uniqueautorefname}{Line}
+\makeatother
+
+% border box
+\RequirePackage{framed}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%% Common Part of Comment %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{Draft}{
@@ -61,6 +124,10 @@
 
 \newcommand{\InProcess}{
   \Label{cyan}{Done}
+}
+
+\newcommand{\Tip}{
+  \Label{violet}{Tip}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%% Common Part of Comment %%%%%%%%%%%%%%%%%%%%%%%%%%%

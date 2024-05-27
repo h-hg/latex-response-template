@@ -1,13 +1,8 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\documentclass[]{responseletter}
 
 % template
 %% You can change this flag to `False` after finish
 \def\IfDraft{True}
-%% Template package
-\usepackage{responseletter}
-%% You can define your custom package in this file
-\input{pkg.tex}
 
 % Input the information of paper here
 %% The title of the paper
@@ -38,9 +33,9 @@
 \addbibresource{ref.bib}
 
 \begin{document}
-  
+
   \maketitle
-  
+
   % Content of the 1st page
   \noindent \textbf{Dear Editors and Reviewers},
   \\[2em]
@@ -64,15 +59,15 @@
     \item[Special issue:] \SpecialIssueId
   \end{description}
   \pagebreak
-  
+
   {
     \hypersetup{linkcolor=black}
     \tableofcontents
     \pagebreak
   }
 
-  \input{editor.tex}
-  \input{reviewer1.tex}
-  \input{how-to-use.tex}
+  \input{content/editor.tex}
+  \input{content/reviewer1.tex}
+  \input{content/how-to-use.tex}
 
 \end{document}
